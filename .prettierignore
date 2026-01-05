@@ -1,0 +1,39 @@
+# --- Build & output directories ---
+.next
+out
+dist
+build
+coverage
+
+# --- Node & package manager folders ---
+node_modules
+.pnpm-store
+.pnp.*
+.cache
+
+# --- Environment & config files ---
+.env
+.env.*
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+turbo.json
+*.log
+
+# --- IDE & system files ---
+.DS_Store
+Thumbs.db
+
+# --- Generated / compiled files ---
+*.min.js
+*.min.css
+*.map
+
+# --- Remotion / video builds (if any) ---
+.remotion
+public/videos
+tmp
+temp
+*.mp4
+*.webm
+*.mov

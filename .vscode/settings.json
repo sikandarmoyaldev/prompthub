@@ -1,0 +1,29 @@
+{
+    // --- Prettier as default formatter ---
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+
+    // --- Exclude folders from Explorer ---
+    "files.exclude": {
+        "**/dist": true,
+        "**/.next": true,
+        "**/node_modules": true
+    },
+
+    // --- Optional: Exclude folders from search ---
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.next": true,
+        "**/dist": true
+    },
+
+    // --- 🔠 Organize imports automatically on save ---
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll": "explicit"
+    },
+
+    // --- Optional: VS Code suggestions ---
+    "javascript.validate.enable": false,
+    "typescript.validate.enable": true
+}
