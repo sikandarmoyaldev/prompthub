@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
 import { geistSans } from "@/lib/fonts";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             >
                 <Navbar />
                 {children}
+                <Footer />
             </body>
         </html>
     );
