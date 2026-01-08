@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
-import { geistMono, geistSans } from "@/lib/fonts";
+import { Navbar } from "@/components/navbar";
+
+import { geistSans } from "@/lib/fonts";
 import { baseMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -13,11 +15,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <html lang="en" suppressHydrationWarning>
             <body
                 className={cn(
-                    geistSans.variable,
-                    geistMono.variable,
+                    geistSans.className,
                     "dark min-h-screen bg-background font-sans antialiased text-foreground",
                 )}
             >
+                <Navbar />
                 {children}
             </body>
         </html>
