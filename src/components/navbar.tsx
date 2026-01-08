@@ -10,11 +10,11 @@ export function Navbar() {
                 <Logo />
 
                 <div className="flex items-center gap-4">
-                    <Link href="/explore">
-                        <Button variant="ghost">Explore</Button>
+                    <Link href="/auth/sign-in">
+                        <Button variant="ghost">Sign In</Button>
                     </Link>
-                    <Link href="/dashboard">
-                        <Button variant="ghost">Dashboard</Button>
+                    <Link href="/auth/sign-up">
+                        <Button>Get Started</Button>
                     </Link>
                 </div>
             </div>

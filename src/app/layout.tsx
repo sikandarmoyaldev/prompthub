@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
-import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 import { geistSans } from "@/lib/fonts";
 import { baseMetadata } from "@/lib/metadata";
@@ -17,12 +16,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <body
                 className={cn(
                     geistSans.className,
-                    "dark min-h-screen bg-background font-sans antialiased text-foreground",
+                    "dark min-h-screen bg-linear-to-br from-background to-secondary flex items-center justify-center bg-background font-sans antialiased text-foreground",
                 )}
             >
-                <Navbar />
-                {children}
-                <Footer />
+                <div className="w-full">{children}</div>
+
+                <Toaster />
             </body>
         </html>
     );
