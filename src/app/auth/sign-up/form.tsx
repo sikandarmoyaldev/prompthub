@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -169,7 +170,14 @@ export function SignUpForm() {
                 />
 
                 <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
-                    {isSubmitting ? "Creating account..." : "Create Account"}
+                    {isSubmitting ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Creating account...
+                        </>
+                    ) : (
+                        "Create Account"
+                    )}
                 </Button>
             </form>
         </Form>

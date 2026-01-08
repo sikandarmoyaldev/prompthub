@@ -4,10 +4,10 @@ import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { SignUpForm } from "./form";
+import { SignInForm } from "./form";
 
 export const metadata: Metadata = {
-    title: "Sign Up",
+    title: "Sign In",
 };
 
 export default function SignUp() {
@@ -19,11 +19,11 @@ export default function SignUp() {
                         <div className="flex justify-center mb-4">
                             <Logo showTitle={false} />
                         </div>
-                        <h1 className="text-2xl font-bold">Create Account</h1>
-                        <p className="text-muted-foreground">Join the PromptHub community</p>
+                        <h1 className="text-2xl font-bold">Sign In</h1>
+                        <p className="text-muted-foreground">Welcome back to PromptHub</p>
                     </div>
 
-                    <SignUpForm />
+                    <SignInForm />
 
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">
@@ -31,22 +31,22 @@ export default function SignUp() {
                         </div>
                         <div className="relative flex justify-center text-sm">
                             <span className="px-2 bg-card text-muted-foreground">
-                                Or sign up with
+                                Or sign in with
                             </span>
                         </div>
                     </div>
 
                     <Button variant="outline" className="w-full bg-transparent" disabled>
-                        Sign up with GitHub
+                        Sign in with GitHub
                     </Button>
 
                     <p className="text-center text-sm text-muted-foreground">
-                        Already have an account?{" "}
+                        Don{"'"}t have an account?{" "}
                         <Link
-                            href="/auth/sign-in"
+                            href="/auth/sign-up"
                             className="text-primary hover:underline font-medium"
                         >
-                            Sign in
+                            Sign up
                         </Link>
                     </p>
                 </div>
