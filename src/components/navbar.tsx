@@ -5,6 +5,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "./logo";
 
+import { UserButton } from "@/features/auth/components/user-button";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -29,13 +30,15 @@ export function Navbar() {
                 </div>
 
                 <div className="hidden md:flex gap-2">
-                    <Link href="/auth/sign-in" className={buttonVariants({ variant: "ghost" })}>
-                        Sign In
-                    </Link>
+                    <UserButton>
+                        <Link href="/auth/sign-in" className={buttonVariants({ variant: "ghost" })}>
+                            Sign In
+                        </Link>
 
-                    <Link href="/auth/sign-up">
-                        <Button className="cursor-pointer">Get Started</Button>
-                    </Link>
+                        <Link href="/auth/sign-up">
+                            <Button className="cursor-pointer">Get Started</Button>
+                        </Link>
+                    </UserButton>
                 </div>
 
                 {/* Mobile Hamburger Menu */}
@@ -69,19 +72,21 @@ export function Navbar() {
                             </Link>
 
                             <div className="space-x-2 pt-4 border-t border-border/50">
-                                <Link
-                                    href="/auth/sign-in"
-                                    className={buttonVariants({ variant: "ghost" })}
-                                >
-                                    Sign In
-                                </Link>
+                                <UserButton>
+                                    <Link
+                                        href="/auth/sign-in"
+                                        className={buttonVariants({ variant: "ghost" })}
+                                    >
+                                        Sign In
+                                    </Link>
 
-                                <Link
-                                    href="/auth/sign-up"
-                                    className={cn(buttonVariants(), "cursor-pointer")}
-                                >
-                                    Get Started
-                                </Link>
+                                    <Link
+                                        href="/auth/sign-up"
+                                        className={cn(buttonVariants(), "cursor-pointer")}
+                                    >
+                                        Get Started
+                                    </Link>
+                                </UserButton>
                             </div>
                         </div>
                     </SheetContent>
