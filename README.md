@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PromptHub - AI Prompt Library 🚀
 
-## Getting Started
+**GitHub for AI prompts - organize, share, never rewrite**
 
-First, run the development server:
+PromptHub helps you store, organize, and manage your AI prompts in one place. Create, categorize, search, and share optimized prompts for **Google AI Studio**, **Perplexity**, **ChatGPT**, **Claude**, **Midjourney** and more - perfect for content creators and developers.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external)
+[![Visit Live Demo](https://img.shields.io/badge/Live%20Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://prompthub-v1.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ What You'll Get
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Save & Organize**: Store prompts with tags, descriptions, and usage notes
+- **Smart Search**: Find prompts instantly by keyword, category, or AI model
+- **Personal Library**: Your private collection with secure login
+- **Easy Sharing**: Share your best prompts with others
+- **Real-time Access**: Available across all your devices instantly
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Perfect For
+- Content creators who use multiple AI tools
+- Developers building AI-powered apps
+- Prompt engineers perfecting their craft
+- Anyone tired of rewriting the same prompts
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## ❤️ Sponsor the Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Your support powers PromptHub's growth!** Funds help with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🛠️ **Server costs** & Firebase hosting  
+- 🚀 **New AI integrations** (Claude 3, GPT-5, more)  
+- 🎨 **Premium features** for creators  
+- 🌍 **Multi-language support**  
+- 📚 **Tutorials & templates**
 
-## Deploy on Vercel
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-%2330333D.svg?logo=github&logoColor=white&style=for-the-badge)](https://github.com/sponsors/sikandarmoyaldev)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/sikandarmoyaldev)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/sikandarmoyaldev)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+If you want to contribute to this project, feel free to fork the repository, make changes, and submit a pull request. Please make sure to review the [Contribution Guidelines](CONTRIBUTING.md) before contributing.
+
+[![GitHub Contributors](https://img.shields.io/github/contributors/sikandarmoyaldev/prompthub?style=social)](https://github.com/sikandarmoyaldev/prompthub/graphs/contributors)
+
