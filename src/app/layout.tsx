@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
 import { geistSans } from "@/lib/fonts";
@@ -16,10 +17,17 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <body
                 className={cn(
                     geistSans.className,
-                    "dark min-h-screen bg-linear-to-br from-background to-secondary flex items-center justify-center bg-background font-sans antialiased text-foreground",
+                    "min-h-screen bg-linear-to-br from-background to-secondary flex items-center justify-center bg-background font-sans antialiased text-foreground",
                 )}
             >
-                <div className="w-full">{children}</div>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <div className="w-full">{children}</div>
+                </ThemeProvider>
 
                 <Toaster />
             </body>

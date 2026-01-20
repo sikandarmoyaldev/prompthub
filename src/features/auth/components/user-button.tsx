@@ -1,8 +1,8 @@
 "use client";
 
 import { signOut } from "firebase/auth";
-import { LogOut, User } from "lucide-react";
-import Link from "next/link";
+import { LogOut, Monitor, Moon, Sun, User } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { PropsWithChildren } from "react";
 
@@ -11,10 +11,13 @@ import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -23,8 +26,9 @@ import { getInitials } from "@/lib/utils";
 import { useAuth } from "../hooks/use-auth";
 
 export function UserButton({ children }: PropsWithChildren) {
-    const { user, loading } = useAuth({ redirectIfUnauthenticated: false });
     const router = useRouter();
+    const { setTheme } = useTheme();
+    const { user, loading } = useAuth({ redirectIfUnauthenticated: false });
 
     const handleSignOut = async () => {
         await signOut(auth);
@@ -80,13 +84,35 @@ export function UserButton({ children }: PropsWithChildren) {
                 <DropdownMenuSeparator />
 
                 {/* Profile */}
-                <Link href="/profile">
-                    <DropdownMenuItem className="flex items-center cursor-pointer">
-                        <User size={18} />
+                <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                        <User className="h-4 w-4" />
                         <span>Profile</span>
-                        <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                </Link>
+                </DropdownMenuGroup>
+
+                {/* Theme Submenu - Fixed with next-themes */}
+                <DropdownMenuSeparator />
+                <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                        <Sun className="h-4 w-4" />
+                        <span>Theme</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent>
+                        <DropdownMenuItem onClick={() => setTheme("light")}>
+                            <Sun className="h-4 w-4" />
+                            <span>Light</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setTheme("dark")}>
+                            <Moon className="h-4 w-4" />
+                            <span>Dark</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setTheme("system")}>
+                            <Monitor className="h-4 w-4" />
+                            <span>System</span>
+                        </DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                </DropdownMenuSub>
 
                 {/* Sign Out */}
                 <DropdownMenuSeparator />
