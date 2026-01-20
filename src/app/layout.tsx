@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <body
                 className={cn(
                     geistSans.className,
-                    "min-h-screen bg-linear-to-br from-background to-secondary flex items-center justify-center bg-background font-sans antialiased text-foreground",
+                    "w-full min-h-screen bg-linear-to-br from-background to-secondary bg-background font-sans antialiased text-foreground",
                 )}
             >
                 <ThemeProvider
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="w-full">{children}</div>
+                    {children}
                 </ThemeProvider>
 
                 <Toaster />

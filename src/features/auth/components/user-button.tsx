@@ -1,8 +1,9 @@
 "use client";
 
 import { signOut } from "firebase/auth";
-import { LogOut, Monitor, Moon, Sun, User } from "lucide-react";
+import { LogOut, Monitor, Moon, Plus, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PropsWithChildren } from "react";
 
@@ -15,6 +16,7 @@ import {
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
+    DropdownMenuShortcut,
     DropdownMenuSub,
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
@@ -36,7 +38,7 @@ export function UserButton({ children }: PropsWithChildren) {
         router.refresh();
     };
 
-    // Show loading skeleton FIRST if loading
+    // Loading skeleton
     if (loading) {
         return (
             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted/50 animate-pulse">
@@ -45,7 +47,7 @@ export function UserButton({ children }: PropsWithChildren) {
         );
     }
 
-    // If no user (not signed in), show children (no fallback)
+    // No user → show children
     if (!user) {
         return children;
     }
@@ -71,27 +73,38 @@ export function UserButton({ children }: PropsWithChildren) {
             <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuLabel className="p-0 font-normal">
                     <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                        <Avatar className="h-8 w-8 rounded-lg">
+                        <Avatar className="h-8 w-8">
                             <AvatarImage src={avatarUrl} alt={displayName} />
-                            <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
+                            <AvatarFallback>{initials}</AvatarFallback>
                         </Avatar>
                         <div className="grid flex-1 text-left text-sm leading-tight">
                             <span className="truncate font-semibold">{displayName}</span>
-                            <span className="truncate text-xs">{email}</span>
+                            <span className="truncate text-xs text-muted-foreground">{email}</span>
                         </div>
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                {/* Profile */}
+                {/* Profile & Actions */}
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        <User className="h-4 w-4" />
-                        <span>Profile</span>
+                    <DropdownMenuItem asChild>
+                        <Link href="/profile" className="flex items-center w-full">
+                            <User className="h-4 w-4" />
+                            <span>Profile</span>
+                            <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
+                        </Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem asChild>
+                        <Link href="/prompts/new" className="flex items-center w-full">
+                            <Plus className="h-4 w-4" />
+                            <span>New Prompt</span>
+                            <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
+                        </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
 
-                {/* Theme Submenu - Fixed with next-themes */}
+                {/* Theme Submenu */}
                 <DropdownMenuSeparator />
                 <DropdownMenuSub>
                     <DropdownMenuSubTrigger>
@@ -116,12 +129,12 @@ export function UserButton({ children }: PropsWithChildren) {
 
                 {/* Sign Out */}
                 <DropdownMenuSeparator />
-                <DropdownMenuItem
-                    onClick={handleSignOut}
-                    className="flex items-center cursor-pointer"
-                >
-                    <LogOut size={18} />
-                    Sign out
+                <DropdownMenuItem onClick={handleSignOut}>
+                    <LogOut className="h-4 w-4" />
+                    <span>Sign out</span>
+                    <kbd className="ml-auto text-xs bg-muted px-1.5 py-0.5 rounded-md font-mono">
+                        Esc
+                    </kbd>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
