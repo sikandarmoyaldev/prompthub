@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2Icon } from "lucide-react";
+import { Eye, Loader2Icon, Lock } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -17,12 +17,23 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 import { wait } from "@/lib/utils";
 import { formPromptSchema } from "../schema";
 
-export const formSchema = formPromptSchema.partial({ userId: true });
+// ✅ Updated schema with isPublic field
+export const formSchema = formPromptSchema.partial({
+    userId: true,
+    isPublic: true, // ✅ Added isPublic
+});
 export type FormValues = z.infer<typeof formSchema>;
 
 type PromptFormProps = {
@@ -37,6 +48,7 @@ export function PromptForm({ defaultValues = {}, onSubmit }: PromptFormProps) {
             title: "",
             content: "",
             description: "",
+            isPublic: false,
             ...defaultValues,
         },
     });
@@ -106,6 +118,44 @@ export function PromptForm({ defaultValues = {}, onSubmit }: PromptFormProps) {
                     )}
                 />
 
+                <FormField
+                    control={form.control}
+                    name="isPublic"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Visibility</FormLabel>
+                            <FormDescription>
+                                Choose whether this prompt is visible to everyone or private.
+                            </FormDescription>
+                            <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value?.toString()}
+                            >
+                                <FormControl>
+                                    <SelectTrigger className="w-full">
+                                        <SelectValue placeholder="Select visibility" />
+                                    </SelectTrigger>
+                                </FormControl>
+                                <SelectContent className="w-full">
+                                    <SelectItem value="false">
+                                        <div className="flex items-center gap-2">
+                                            <Lock className="h-4 w-4" />
+                                            Private (Only you)
+                                        </div>
+                                    </SelectItem>
+                                    <SelectItem value="true">
+                                        <div className="flex items-center gap-2">
+                                            <Eye className="h-4 w-4 text-emerald-500" />
+                                            Public (Everyone)
+                                        </div>
+                                    </SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
                 {/* Content Field */}
                 <FormField
                     control={form.control}
@@ -132,7 +182,7 @@ export function PromptForm({ defaultValues = {}, onSubmit }: PromptFormProps) {
                 <Button type="submit" disabled={isSubmitting} className="w-full">
                     {isSubmitting ? (
                         <>
-                            <Loader2Icon className="h-4 w-4 animate-spin" />
+                            <Loader2Icon className="h-4 w-4 animate-spin mr-2" />
                             Creating Prompt...
                         </>
                     ) : (

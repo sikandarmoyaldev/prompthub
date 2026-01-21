@@ -4,6 +4,7 @@ import { z } from "zod";
 export const promptSchema = z.object({
     id: z.string(),
     description: z.string().optional(),
+    isPublic: z.boolean().default(false),
     title: z.string().min(2, "Prompt Title is required."),
     userId: z.string().min(2, "Prompt UserId is required."),
     content: z.string().min(1, "Prompt Content is required."),

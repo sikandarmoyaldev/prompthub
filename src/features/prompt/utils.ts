@@ -34,6 +34,7 @@ export async function docToPromptWithAuthor(doc: QueryDocumentSnapshot): Promise
         userId: data.userId,
         author: { username },
         content: data.content,
+        isPublic: data.isPublic,
         createdAt: data.createdAt,
         updatedAt: data.updatedAt,
         description: data.description,

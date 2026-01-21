@@ -1,7 +1,7 @@
 "use client";
 
 import { signOut } from "firebase/auth";
-import { LogOut, Monitor, Moon, Plus, Sun, User } from "lucide-react";
+import { File, LogOut, Monitor, Moon, Plus, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -92,6 +92,14 @@ export function UserButton({ children }: PropsWithChildren) {
                             <User className="h-4 w-4" />
                             <span>Profile</span>
                             <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
+                        </Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem asChild>
+                        <Link href="/prompts/my-prompts" className="flex items-center w-full">
+                            <File className="h-4 w-4" />
+                            <span>My Prompts</span>
+                            <DropdownMenuShortcut>⌘M</DropdownMenuShortcut>
                         </Link>
                     </DropdownMenuItem>
 
