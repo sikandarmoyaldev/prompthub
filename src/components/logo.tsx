@@ -6,7 +6,7 @@ export function Logo({ showTitle = true }: { showTitle?: boolean }) {
                     {process.env.NEXT_PUBLIC_APP_NAME?.[0] ?? "P"}
                 </span>
             </div>
-            {showTitle && <span>{process.env.NEXT_PUBLIC_APP_NAME}</span>}
+            {showTitle && <span className="mt-1">{process.env.NEXT_PUBLIC_APP_NAME}</span>}
         </div>
     );
 }

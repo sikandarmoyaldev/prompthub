@@ -172,7 +172,7 @@ export function SignUpForm() {
                 <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
                     {isSubmitting ? (
                         <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            <Loader2 className="sh-4 w-4 animate-spin" />
                             Creating account...
                         </>
                     ) : (
